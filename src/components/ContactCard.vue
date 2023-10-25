@@ -21,8 +21,8 @@
 
         <div class="p-1">
             <strong>Liên hệ yêu thích:&nbsp;</strong>
-            <i v-if="contact.favorite" class="fas fa-check"></i>
-            <i v-else class="fas fa-time"></i>
+            <i v-if="contact.favorite" class="fas fa-check" ></i>
+            <i v-else class="fas fa-times"></i>
         </div>
     </div>
 </template>
@@ -41,5 +41,13 @@ export default{
 <style>
     .page{
         max-width: 500px;
+    }
+
+    .fa-check{
+        color: green;
+    }
+
+    .fa-times{
+        color: red;
     }
 </style>

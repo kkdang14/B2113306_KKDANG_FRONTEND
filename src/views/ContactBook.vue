@@ -1,6 +1,6 @@
 <template>
     <div class="page row justify-content-between">
-        <div class="col-md-12">
+        <div class="col-md-11">
             <input-search v-model="searchText" />
         </div>
         <div class="mt-3 col-md-7">
@@ -11,7 +11,8 @@
             <contact-list 
                 v-if="filtedContactsCount > 0"
                 :contacts="filtedContacts"
-                v-model:activeIndex="activeIndex"
+                :active-index="activeIndex"
+                @update:active-index="updateActiveIndex"
             />
             <p v-else>Không có liên hệ nào</p>
 
@@ -30,7 +31,7 @@
                 </button>
             </div>
         </div>
-        <div class="mt-3 col-4">
+        <div class="mt-3 col-5">
             <div v-if="activeContact">
                 <h4>
                     Chi tiết Liên hệ 
@@ -97,6 +98,10 @@ export default{
             }catch(error){
                 console.log(error)
             }
+        },
+
+        updateActiveIndex(newIndex) {
+            this.activeIndex = newIndex;
         },
 
         refreshList(){

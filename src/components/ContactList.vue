@@ -15,14 +15,8 @@
 <script>
 export default{
     props:{
-        contacts:{
-            type: Array,
-            default: []
-        },
-        activeIndex: {
-            type: Number,
-            default: -1
-        },
+        contacts: Array,
+        activeIndex: Number
     },
 
     emits: ["update:activeIndex"],
