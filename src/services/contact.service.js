@@ -21,8 +21,14 @@ class ContactService {
         return (await this.api.get(`/${id}`)).data;
     }
 
-    async update(id){
-        return (await this.api.put(`/${id}`), data).data;
+    async update(id, data){
+        try {
+            const response = await this.api.put(`/${id}`, data).data;
+            return response.data;
+        } catch (error) {
+            console.error("Error response:", error.response);
+            throw error;
+        }
     }
 
     async delete(id){
