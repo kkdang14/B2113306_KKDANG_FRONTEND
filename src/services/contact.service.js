@@ -23,7 +23,7 @@ class ContactService {
 
     async update(id, data){
         try {
-            const response = await this.api.put(`/${id}`, data).data;
+            const response = await this.api.put(`/${id}`, data);
             return response.data;
         } catch (error) {
             console.error("Error response:", error.response);

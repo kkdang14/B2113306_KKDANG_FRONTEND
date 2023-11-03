@@ -27,7 +27,6 @@ export default {
                 this.contact = await ContactService.get(id);
             } catch (error) {
                 console.log(error);
-                // Chuyển sang trang NotFound đồng thời giữ cho URL không đổi
                 this.$router.push({
                     name: "notfound",
                     params: {
@@ -41,7 +40,7 @@ export default {
         async updateContact(data) {
             try {
                 await ContactService.update(this.contact._id, data);
-                this.message = "Liên hệ được cập nhật thành công.";
+                alert("Liên hệ được cập nhật thành công.");
                 this.$router.push({ name: "contactbook" });
             } catch (error) {
                 console.log(error);
@@ -50,7 +49,7 @@ export default {
         async deleteContact() {
             if (confirm("Bạn muốn xóa Liên hệ này?")) {
                 try {
-                    await ContactService.delete(this.contact._id);
+                    const respone = await ContactService.delete(this.contact._id);
                     this.$router.push({ name: "contactbook" });
                 } catch (error) {
                     console.log(error);
